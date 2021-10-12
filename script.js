@@ -89,6 +89,13 @@ const updateScore = () => {
   scoreElement.innerText = score;
 }
 
+const repeatSequence = () => {
+  for(let i in order) {
+    let elementColor = createColorElement(order[i]);
+    lightColor(elementColor, Number(i) + 1);
+  }
+}
+
 // Função para derrota
 const gameOver = () => {
   alert(`Pontuação: ${score}!\nVocê perdeu!\nClique em OK para iniciar um novo jogo.`);
@@ -114,4 +121,4 @@ yellow.addEventListener('click', () => click(2));
 blue.addEventListener('click', () => click(3));
 
 // Inicia o jogo
-playGame();
+//playGame();

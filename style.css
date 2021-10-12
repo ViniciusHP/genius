@@ -9,6 +9,7 @@
 body {
   margin: 0;
   background-color: rgb(208, 255, 239);
+  font-family: 'VT323', monospace;
 }
 
 .main-game {
@@ -118,6 +119,7 @@ body {
 
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -133,11 +135,52 @@ body {
 }
 
 .score-container span {
-  font-family: 'VT323', monospace;;
   color: #ffffff;
   font-size: 2rem;
 }
 
 .score-container #score {
   font-size: 3rem;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.buttons-container .button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 150px;
+}
+
+.button-container span {
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.button-container button {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  background-color: transparent;
+  filter: brightness(80%);
+  transition: all 0.3s ease;
+}
+
+.button-container button:hover {
+  filter: brightness(120%);
+}
+
+#repeat {
+  background-color: var(--amarelo);
+}
+
+#start {
+  background-color: var(--verde);
 }
