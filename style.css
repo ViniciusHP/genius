@@ -71,6 +71,7 @@ body {
 .green {
   width: 90%;
   height: 90%;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
@@ -171,6 +172,7 @@ body {
   background-color: transparent;
   filter: brightness(80%);
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .button-container button:hover {
