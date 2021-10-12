@@ -1,3 +1,10 @@
+:root {
+  --verde: #7DD081;
+  --vermelho: #EC1F30;
+  --amarelo: #fbf28b;
+  --azul: #06AAE5;
+}
+
 body {
   margin: 0;
   background-color: rgb(208, 255, 239);
@@ -15,44 +22,95 @@ body {
   display: grid;
   grid-template-areas: 'verde vermelho'
                        'amarelo azul';
-  gap: 10px;
+  gap: 30px;
   border: 1px solid #ffffff;
   background-color: #ffffff;
   border-radius: 100%;
   width: 700px;
   height: 700px;
+  position: relative;
 }
 
 .blue {
   grid-area: azul;
-  background-color: #06AAE5;
+  background-color: var(--azul);
   border-bottom-right-radius: 100%;
+  justify-self: start;
+  align-self: start;
 }
 
 .yellow {
   grid-area: amarelo;
-  background-color: #FDF6A3;
+  background-color: var(--amarelo);
   border-bottom-left-radius: 100%;
+  justify-self: end;
+  align-self: start;
 }
 
 .green {
   grid-area: verde;
-  background-color: #7DD081;
+  background-color: var(--verde);
   border-top-left-radius: 100%;
+  justify-self: end;
+  align-self: end;
 }
 
 .red {
   grid-area: vermelho;
-  background-color: #EC1F30;
+  background-color: var(--vermelho);
   border-top-right-radius: 100%;
+  justify-self: start;
+  align-self: end;
+}
+
+.blue,
+.red,
+.yellow,
+.green {
+  width: 90%;
+  height: 90%;
+  transition: all 0.3s ease;
 }
 
 .red.selected,
-.blue.selected {
+.red:hover{
+  box-shadow: 0 0 5px var(--vermelho),
+              0 0 20px var(--vermelho),
+              0 0 30px var(--vermelho);
   filter: brightness(150%);
 }
 
+.blue.selected,
+.blue:hover{
+  box-shadow: 0 0 5px var(--azul),
+              0 0 20px var(--azul),
+              0 0 30px var(--azul);
+  filter: brightness(120%);
+}
+
+.yellow.selected,
+.yellow:hover{
+  box-shadow: 0 0 5px var(--amarelo),
+              0 0 20px var(--amarelo),
+              0 0 30px var(--amarelo);
+  filter: brightness(110%);
+}
+
 .green.selected,
-.yellow.selected {
-  filter: brightness(130%);
+.green:hover{
+  box-shadow: 0 0 5px var(--verde),
+              0 0 20px var(--verde),
+              0 0 30px var(--verde);
+  filter: brightness(110%);
+}
+
+.inner-circle {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
 }
