@@ -11,6 +11,7 @@ const blue = document.querySelector('.blue');
 const red = document.querySelector('.red');
 const green = document.querySelector('.green');
 const yellow = document.querySelector('.yellow');
+const scoreElement = document.getElementById('score');
 
 // Função que cria ordem aleatória de cores
 const shuffleOrder = () => {
@@ -45,7 +46,7 @@ const checkOrder = () => {
   }
 
   if(clickedOrder.length == order.length) {
-    alert(`Pontuação: ${score}\nVocê acertou! Iniciando o próximo nível!`);
+    //alert(`Pontuação: ${score}\nVocê acertou! Iniciando o próximo nível!`);
     nextLevel();
   }
 }
@@ -80,8 +81,13 @@ const createColorElement = (color) => {
 // Função para o próximo nível do jogo
 const nextLevel = () => {
   score++;
+  updateScore();
   shuffleOrder();
 };
+
+const updateScore = () => {
+  scoreElement.innerText = score;
+}
 
 // Função para derrota
 const gameOver = () => {
@@ -95,7 +101,8 @@ const gameOver = () => {
 // Função que inicia o jogo
 const playGame = () => {
   alert('Bem vindo ao Genius! Iniciando novo jogo!')
-  score = 0;
+  score = -1;
+  updateScore();
 
   nextLevel();
 };
