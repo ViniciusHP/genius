@@ -12,7 +12,7 @@ export class Genius {
     }
     repeatSequence() {
         for (let i in this.order) {
-            let elementColor = this.createColorElement(this.order[i]);
+            let elementColor = this.getColorElement(this.order[i]);
             this.lightColor(elementColor, Number(i) + 1);
         }
     }
@@ -27,7 +27,7 @@ export class Genius {
         this.order.push(colorOrder);
         this.clickedOrder = [];
         for (let i in this.order) {
-            let elementColor = this.createColorElement(this.order[i]);
+            let elementColor = this.getColorElement(this.order[i]);
             this.lightColor(elementColor, Number(i) + 1);
         }
     }
@@ -59,13 +59,13 @@ export class Genius {
     }
     click(color) {
         this.clickedOrder.push(color);
-        this.createColorElement(color).classList.add('selected');
+        this.getColorElement(color).classList.add('selected');
         setTimeout(() => {
-            this.createColorElement(color).classList.remove('selected');
+            this.getColorElement(color).classList.remove('selected');
             this.checkOrder();
         }, 250);
     }
-    createColorElement(color) {
+    getColorElement(color) {
         switch (color) {
             case 0:
                 return this.greenElement;

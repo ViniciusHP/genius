@@ -29,7 +29,7 @@ export class Genius {
 
   public repeatSequence(): void {
     for(let i in this.order) {
-      let elementColor = this.createColorElement(this.order[i]);
+      let elementColor = this.getColorElement(this.order[i]);
       this.lightColor(elementColor, Number(i) + 1);
     }
   }
@@ -52,7 +52,7 @@ export class Genius {
     this.clickedOrder = [];
   
     for(let i in this.order) {
-      let elementColor = this.createColorElement(this.order[i]);
+      let elementColor = this.getColorElement(this.order[i]);
       this.lightColor(elementColor, Number(i) + 1);
     }
   }
@@ -96,16 +96,16 @@ export class Genius {
   // Função que trata o clique do usuário
   private click(color: number): void{
     this.clickedOrder.push(color);
-    this.createColorElement(color).classList.add('selected');
+    this.getColorElement(color).classList.add('selected');
 
     setTimeout(() => {
-      this.createColorElement(color).classList.remove('selected');
+      this.getColorElement(color).classList.remove('selected');
       this.checkOrder();
     }, 250);
   }
 
   // Função que retorna a cor
-  private createColorElement(color: number): HTMLElement{
+  private getColorElement(color: number): HTMLElement{
     switch(color) {
       case 0:
         return this.greenElement;
