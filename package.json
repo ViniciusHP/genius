@@ -5,13 +5,15 @@
   "main": "script.js",
   "scripts": {
     "compile": "tsc",
-    "watch": "tsc -w",
-    "dev-server": "lite-server"
+    "watch-ts": "tsc -w",
+    "dev-server": "lite-server",
+    "start": "concurrently \"npm:watch-ts\" \"npm:dev-server\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "concurrently": "^6.3.0",
     "lite-server": "^2.6.1",
     "typescript": "^4.4.4"
   }
