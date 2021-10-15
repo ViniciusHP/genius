@@ -183,7 +183,8 @@ body {
   position: relative;
   box-shadow: 3px 3px 0px #ffffff;
   outline: none;
-  transition: filter top left 0.3s ease;
+  transition: all 0.3s ease;
+  transition-property: filter, top, left;
 }
 
 .button-container button:hover {
