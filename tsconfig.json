@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES6", /* O Código Typescript será traduzido para Ecmascript 6 */
+    "outDir": "js", /* O resultado da compilação irá cair nesta pasta, com a mesma estrutura de pastas e arquivos */
+    "noEmitOnError": true, /* Enquanto houver algum erro no arquivo Typescript, ele não vai gerar os arquivos JavaScript */
+    "noImplicitAny": false, /* Ele não vai adotar o tipo implícito 'any' para as variáveis, forçando nós definirmos um tipo */
+    "removeComments": true,
+    "module": "ES6", /* Faz com que a exportação de módulos sejam feitos de maneira ES6 */
+    "strictNullChecks": false, /* Não permite null e undefined */
+    "experimentalDecorators": true /* Habilita os Decorators utilizados em @logarTempoDeExecucao */
+  },
+  "include": [/* Indica quais arquivos o compilador deve levar em consideração durante a compilação */
+    "ts/**/*"  /* Todos os arquivos e subdiretórios de ts */
+  ]
+}

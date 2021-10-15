@@ -86,7 +86,7 @@ const nextLevel = () => {
 };
 
 const updateScore = () => {
-  scoreElement.innerText = score;
+  scoreElement.innerText = score.toString();
 }
 
 const repeatSequence = () => {
