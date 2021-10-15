@@ -1,4 +1,4 @@
-let order = [];
+/*let order = [];
 let clickedOrder = [];
 let score = 0;
 
@@ -119,6 +119,17 @@ green.addEventListener('click', () => click(0));
 red.addEventListener('click', () => click(1));
 yellow.addEventListener('click', () => click(2));
 blue.addEventListener('click', () => click(3));
-
+*/
 // Inicia o jogo
 //playGame();
+
+import { Genius } from "./Genius.js";
+
+const geniusGame = new Genius('.blue', '.red', '.green', '.yellow', '#score');
+//geniusGame.playGame();
+
+const startButton = document.querySelector('#start');
+startButton?.addEventListener('click', () => geniusGame.playGame());
+
+const repeatButton = document.querySelector('#repeat');
+repeatButton?.addEventListener('click', () => geniusGame.repeatSequence());
