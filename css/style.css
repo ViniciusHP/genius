@@ -75,32 +75,35 @@ body {
   transition: all 0.3s ease;
 }
 
-.red.selected,
-.red:hover{
+.blue:hover,
+.green:hover,
+.red:hover,
+.yellow:hover {
+  box-shadow: 0 0 20px #ffffff;
+}
+
+.red.selected {
   box-shadow: 0 0 5px var(--vermelho),
               0 0 20px var(--vermelho),
               0 0 30px var(--vermelho);
   filter: brightness(150%);
 }
 
-.blue.selected,
-.blue:hover{
+.blue.selected {
   box-shadow: 0 0 5px var(--azul),
               0 0 20px var(--azul),
               0 0 30px var(--azul);
   filter: brightness(120%);
 }
 
-.yellow.selected,
-.yellow:hover{
+.yellow.selected {
   box-shadow: 0 0 5px var(--amarelo),
               0 0 20px var(--amarelo),
               0 0 30px var(--amarelo);
   filter: brightness(110%);
 }
 
-.green.selected,
-.green:hover{
+.green.selected {
   box-shadow: 0 0 5px var(--verde),
               0 0 20px var(--verde),
               0 0 30px var(--verde);
