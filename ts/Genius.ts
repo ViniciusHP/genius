@@ -29,14 +29,16 @@ export class Genius {
     this.addClickEvent();
   }
 
+  /**
+   * Função que repete a última sequência gerada.
+   */
   public repeatSequence(): void {
-    for(let i in this.order) {
-      let elementColor = this.getColorElement(this.order[i]);
-      this.lightColor(elementColor, Number(i) + 1);
-    }
+    this.lightSequence();
   }
 
-  // Função que inicia o jogo
+  /**
+   * Função que inicia o jogo.
+   */
   public playGame(): void {
     alert('Bem vindo ao Genius! Iniciando novo jogo!')
     this.score = -1;
@@ -53,6 +55,13 @@ export class Genius {
     this.order.push(colorOrder);
     this.clickedOrder = [];
   
+    this.lightSequence();
+  }
+
+  /**
+   * Acende a sequência de cores gerada.
+   */
+  private lightSequence(): void {
     for(let i in this.order) {
       let elementColor = this.getColorElement(this.order[i]);
       this.lightColor(elementColor, Number(i) + 1);

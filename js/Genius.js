@@ -12,10 +12,7 @@ export class Genius {
         this.addClickEvent();
     }
     repeatSequence() {
-        for (let i in this.order) {
-            let elementColor = this.getColorElement(this.order[i]);
-            this.lightColor(elementColor, Number(i) + 1);
-        }
+        this.lightSequence();
     }
     playGame() {
         alert('Bem vindo ao Genius! Iniciando novo jogo!');
@@ -27,6 +24,9 @@ export class Genius {
         let colorOrder = Math.floor(Math.random() * 4);
         this.order.push(colorOrder);
         this.clickedOrder = [];
+        this.lightSequence();
+    }
+    lightSequence() {
         for (let i in this.order) {
             let elementColor = this.getColorElement(this.order[i]);
             this.lightColor(elementColor, Number(i) + 1);
