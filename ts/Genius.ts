@@ -9,9 +9,10 @@ export class Genius {
   private order: number[];
   private clickedOrder: number[];
   private score: number;
+  private selectedClass: string;
 
   constructor(blueSelector: string, redSelector: string, greenSelector: string, yellowSelector: string,
-    scoreSelector: string) {
+    selectedClass: string, scoreSelector: string) {
     
     this.blueElement = <HTMLElement>document.querySelector(blueSelector);
     this.redElement = <HTMLElement>document.querySelector(redSelector);
@@ -19,6 +20,7 @@ export class Genius {
     this.yellowElement = <HTMLElement>document.querySelector(yellowSelector);
 
     this.scoreElement = <HTMLElement>document.querySelector(scoreSelector);
+    this.selectedClass = selectedClass;
 
     this.order = [];
     this.clickedOrder = [];
@@ -96,10 +98,10 @@ export class Genius {
   // Função que trata o clique do usuário
   private click(color: number): void{
     this.clickedOrder.push(color);
-    this.getColorElement(color).classList.add('selected');
+    this.getColorElement(color).classList.add(this.selectedClass);
 
     setTimeout(() => {
-      this.getColorElement(color).classList.remove('selected');
+      this.getColorElement(color).classList.remove(this.selectedClass);
       this.checkOrder();
     }, 250);
   }

@@ -1,10 +1,11 @@
 export class Genius {
-    constructor(blueSelector, redSelector, greenSelector, yellowSelector, scoreSelector) {
+    constructor(blueSelector, redSelector, greenSelector, yellowSelector, selectedClass, scoreSelector) {
         this.blueElement = document.querySelector(blueSelector);
         this.redElement = document.querySelector(redSelector);
         this.greenElement = document.querySelector(greenSelector);
         this.yellowElement = document.querySelector(yellowSelector);
         this.scoreElement = document.querySelector(scoreSelector);
+        this.selectedClass = selectedClass;
         this.order = [];
         this.clickedOrder = [];
         this.score = 0;
@@ -59,9 +60,9 @@ export class Genius {
     }
     click(color) {
         this.clickedOrder.push(color);
-        this.getColorElement(color).classList.add('selected');
+        this.getColorElement(color).classList.add(this.selectedClass);
         setTimeout(() => {
-            this.getColorElement(color).classList.remove('selected');
+            this.getColorElement(color).classList.remove(this.selectedClass);
             this.checkOrder();
         }, 250);
     }
