@@ -21,6 +21,9 @@ export class Genius {
         this.updateScore();
         this.nextLevel();
     }
+    executeOnGameOver(callback) {
+        this.callbackOnGameOver = callback;
+    }
     shuffleOrder() {
         let colorOrder = Math.floor(Math.random() * 4);
         this.order.push(colorOrder);
@@ -46,7 +49,7 @@ export class Genius {
         for (let i in this.clickedOrder) {
             if (this.clickedOrder[i] != this.order[i]) {
                 this.gameOver();
-                break;
+                return;
             }
         }
         if (this.clickedOrder.length == this.order.length) {
@@ -90,9 +93,9 @@ export class Genius {
         this.scoreElement.innerText = this.score.toString();
     }
     gameOver() {
-        alert(`Pontuação: ${this.score}!\nVocê perdeu!\nClique em OK para iniciar um novo jogo.`);
+        if (this.callbackOnGameOver)
+            this.callbackOnGameOver();
         this.order = [];
         this.clickedOrder = [];
-        this.playGame();
     }
 }

@@ -8,3 +8,11 @@ startButton?.addEventListener('click', () => geniusGame.playGame());
 
 const repeatButton = document.querySelector('#repeat');
 repeatButton?.addEventListener('click', () => geniusGame.repeatSequence());
+
+geniusGame.executeOnGameOver(function() {
+  Swal.fire({
+    title: 'Game Over!',
+    text: 'Click OK button to restart the game.',
+    confirmButtonText: 'OK'
+  });
+});

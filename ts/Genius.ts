@@ -13,6 +13,8 @@ export class Genius {
   private score: number;
   private selectedClass: string;
 
+  private callbackOnGameOver: Function;
+
   constructor(blueSelector: string, redSelector: string, greenSelector: string, yellowSelector: string,
     selectedClass: string, scoreSelector: string) {
     
@@ -47,6 +49,14 @@ export class Genius {
     this.updateScore();
   
     this.nextLevel();
+  }
+
+  /**
+   * Executa algo ao perder o jogo.
+   * @param callback - Função que será chamada ao perder o jogo.
+   */
+  public executeOnGameOver(callback: Function): void {
+    this.callbackOnGameOver = callback;
   }
 
   /** 
@@ -92,7 +102,7 @@ export class Genius {
     for(let i in this.clickedOrder) {
       if(this.clickedOrder[i] != this.order[i]) {
         this.gameOver();
-        break;
+        return;
       }
     }
 
@@ -165,10 +175,8 @@ export class Genius {
    * Função para derrota.
    */
   private gameOver() {
-    alert(`Pontuação: ${this.score}!\nVocê perdeu!\nClique em OK para iniciar um novo jogo.`);
+    if(this.callbackOnGameOver) this.callbackOnGameOver();
     this.order = [];
     this.clickedOrder = [];
-    
-    this.playGame();
   }
 }
