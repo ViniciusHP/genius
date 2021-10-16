@@ -1,4 +1,5 @@
 import { Colors } from "./Colors.js";
+import { debounce } from "./debounce.js";
 
 export class Genius {
 
@@ -36,6 +37,7 @@ export class Genius {
   /**
    * Função que repete a última sequência gerada.
    */
+  @debounce()
   public repeatSequence(): void {
     this.lightSequence();
   }
@@ -43,6 +45,7 @@ export class Genius {
   /**
    * Função que inicia o jogo.
    */
+  @debounce()
   public playGame(): void {
     this.order = [];
     this.clickedOrder = [];
