@@ -71,7 +71,7 @@ export class Genius {
   /**
    * Função que acende a próxima cor.
    * @param element - Elemento da cor que será acesa
-   * @param number - 
+   * @param number - Fator para o cálculo do tempo para acender a cor.
    */
   private lightColor(element: HTMLElement, number: number): void{
     number = number * 500;
@@ -83,7 +83,9 @@ export class Genius {
     }, number);
   }
 
-  // Verifica se os botões que foram clicados são os mesmos da ordem gerada
+  /**
+   * Verifica se os botões que foram clicados são os mesmos da ordem gerada.
+   */ 
   private checkOrder() : void{
     for(let i in this.clickedOrder) {
       if(this.clickedOrder[i] != this.order[i]) {
@@ -97,6 +99,9 @@ export class Genius {
     }
   }
 
+  /**
+   * Registra o tratamento de evento de clique nos elementos das cores.
+   */
   private addClickEvent(): void {
     this.greenElement.addEventListener('click', () => this.click(0));
     this.redElement.addEventListener('click', () => this.click(1));
@@ -104,7 +109,10 @@ export class Genius {
     this.blueElement.addEventListener('click', () => this.click(3));
   }
 
-  // Função que trata o clique do usuário
+  /**
+   * Função que trata o clique do usuário.
+   * @param color - Valor que representa qual cor foi clicado.
+   */
   private click(color: number): void{
     this.clickedOrder.push(color);
     this.getColorElement(color).classList.add(this.selectedClass);
@@ -115,7 +123,11 @@ export class Genius {
     }, 250);
   }
 
-  // Função que retorna a cor
+  /**
+   * Função que retorna o elemento correspondente a cor.
+   * @param color - Valor que representa uma cor.
+   * @returns Elemento que representa a cor informada.
+   */
   private getColorElement(color: number): HTMLElement{
     switch(color) {
       case 0:
@@ -131,18 +143,25 @@ export class Genius {
     }
   }
 
-  // Função para o próximo nível do jogo
+  /**
+   * Função para o próximo nível do jogo.
+   */
   private nextLevel() {
     this.score++;
     this.updateScore();
     this.shuffleOrder();
   }
 
+  /**
+   * Atualiza o valor do score para o usuário.
+   */
   private updateScore() {
     this.scoreElement.innerText = this.score.toString();
   }
 
-  // Função para derrota
+  /**
+   * Função para derrota.
+   */
   private gameOver() {
     alert(`Pontuação: ${this.score}!\nVocê perdeu!\nClique em OK para iniciar um novo jogo.`);
     this.order = [];
@@ -150,5 +169,4 @@ export class Genius {
     
     this.playGame();
   }
-
 }
