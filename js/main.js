@@ -7,7 +7,12 @@ repeatButton === null || repeatButton === void 0 ? void 0 : repeatButton.addEven
 geniusGame.executeOnGameOver(function () {
     Swal.fire({
         title: 'Game Over!',
-        text: 'Click OK button to restart the game.',
         confirmButtonText: 'OK'
     });
+});
+Swal.fire({
+    title: 'Welcome to Genius!',
+    text: `Starting new game!`,
+    icon: 'info',
+    confirmButtonText: 'OK'
 });

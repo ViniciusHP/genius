@@ -16,7 +16,8 @@ export class Genius {
         this.lightSequence();
     }
     playGame() {
-        alert('Bem vindo ao Genius! Iniciando novo jogo!');
+        this.order = [];
+        this.clickedOrder = [];
         this.score = -1;
         this.updateScore();
         this.nextLevel();
