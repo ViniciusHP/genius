@@ -1,3 +1,5 @@
+import { Colors } from "./Colors.js";
+
 export class Genius {
 
   private blueElement: HTMLElement;
@@ -103,10 +105,10 @@ export class Genius {
    * Registra o tratamento de evento de clique nos elementos das cores.
    */
   private addClickEvent(): void {
-    this.greenElement.addEventListener('click', () => this.click(0));
-    this.redElement.addEventListener('click', () => this.click(1));
-    this.yellowElement.addEventListener('click', () => this.click(2));
-    this.blueElement.addEventListener('click', () => this.click(3));
+    this.greenElement.addEventListener('click', () => this.click(Colors.GREEN));
+    this.redElement.addEventListener('click', () => this.click(Colors.RED));
+    this.yellowElement.addEventListener('click', () => this.click(Colors.YELLOW));
+    this.blueElement.addEventListener('click', () => this.click(Colors.BLUE));
   }
 
   /**
@@ -130,13 +132,13 @@ export class Genius {
    */
   private getColorElement(color: number): HTMLElement{
     switch(color) {
-      case 0:
+      case Colors.GREEN:
         return this.greenElement;
-      case 1:
+      case Colors.RED:
         return this.redElement;
-      case 2:
+      case Colors.YELLOW:
         return this.yellowElement;
-      case 3:
+      case Colors.BLUE:
         return this.blueElement;
       default:
         throw new Error(`Cor não reconhecida: ${color}`);

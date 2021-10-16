@@ -1,3 +1,4 @@
+import { Colors } from "./Colors.js";
 export class Genius {
     constructor(blueSelector, redSelector, greenSelector, yellowSelector, selectedClass, scoreSelector) {
         this.blueElement = document.querySelector(blueSelector);
@@ -53,10 +54,10 @@ export class Genius {
         }
     }
     addClickEvent() {
-        this.greenElement.addEventListener('click', () => this.click(0));
-        this.redElement.addEventListener('click', () => this.click(1));
-        this.yellowElement.addEventListener('click', () => this.click(2));
-        this.blueElement.addEventListener('click', () => this.click(3));
+        this.greenElement.addEventListener('click', () => this.click(Colors.GREEN));
+        this.redElement.addEventListener('click', () => this.click(Colors.RED));
+        this.yellowElement.addEventListener('click', () => this.click(Colors.YELLOW));
+        this.blueElement.addEventListener('click', () => this.click(Colors.BLUE));
     }
     click(color) {
         this.clickedOrder.push(color);
@@ -68,13 +69,13 @@ export class Genius {
     }
     getColorElement(color) {
         switch (color) {
-            case 0:
+            case Colors.GREEN:
                 return this.greenElement;
-            case 1:
+            case Colors.RED:
                 return this.redElement;
-            case 2:
+            case Colors.YELLOW:
                 return this.yellowElement;
-            case 3:
+            case Colors.BLUE:
                 return this.blueElement;
             default:
                 throw new Error(`Cor não reconhecida: ${color}`);
