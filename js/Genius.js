@@ -78,7 +78,7 @@ export class Genius {
             case Colors.BLUE:
                 return this.blueElement;
             default:
-                throw new Error(`Cor não reconhecida: ${color}`);
+                throw new Error(`Cor não reconhecida, número da cor: ${color}`);
         }
     }
     nextLevel() {

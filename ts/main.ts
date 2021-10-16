@@ -1,4 +1,5 @@
 import { Genius } from "./Genius.js";
+declare var Swal: any;
 
 const geniusGame = new Genius('.blue', '.red', '.green', '.yellow', 'selected', '#score');
 
