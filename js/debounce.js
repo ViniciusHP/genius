@@ -6,7 +6,7 @@ export function debounce(milliseconds = 500) {
             if (event)
                 event.preventDefault();
             clearTimeout(timer);
-            timer = setTimeout(() => {
+            timer = window.setTimeout(() => {
                 originalMethod.apply(this, args);
             }, milliseconds);
         };

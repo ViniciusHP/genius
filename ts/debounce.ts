@@ -7,7 +7,7 @@ export function debounce(milliseconds = 500) {
     descriptor.value = function(...args: any[]) {
       if(event) event.preventDefault();
       clearTimeout(timer);
-      timer = setTimeout(()=> {
+      timer = window.setTimeout(()=> {
         originalMethod.apply(this, args);
       } , milliseconds);
     }
